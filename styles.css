@@ -1,20 +1,13 @@
-/* 
-Note: 
-I know there are lots of things to be simplified, but I'm still recalling front-end things that I have learned in the past. Later, I will refactor the code to make it simpler.
-*/
-
 /* body */
 body {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
-    font-weight: 500;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-
     /* set background image */
     background-image: url("assets/114694219_p0.png");
     background-size: cover;
@@ -25,23 +18,22 @@ body {
 /* container */
 .container {
     display: grid;
-    grid-template-columns: 0.8fr 1.6fr 1.6fr 0.8fr;
-    grid-template-rows: 0.5fr 1fr 0.7fr;
+    grid-template-columns: 100px 200px 200px 100px;
+    grid-template-rows: 50px 140px 80px;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
         "letter-header letter-header letter-header letter-icon"
         ". letter-body letter-body letter-icon"
         ". no-btn yes-btn letter-icon";
-
+    overflow: hidden;
+    /* glass blur effect */
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-    overflow: hidden;
 }
 /* .container > * {
     border: 1px solid black;
@@ -51,11 +43,12 @@ body {
 /* letter header */
 .letter-header { 
     grid-area: letter-header;
+    display: flex;
+    /* align-items: start; */
 }
 .header-text{
-    margin-left: 6%;
-    margin-top: 4%;
-    margin-bottom: 0;
+    margin-left: 4%;
+    margin-top: 3%;
     font-weight: 700;
 }
 
@@ -64,51 +57,72 @@ body {
 .letter-icon { 
     grid-area: letter-icon; 
 }
-.header-image, .header-image-hover {
+.header-image,
+.header-image-hover,
+.header-image-broken,
+.header-image-broken-hover {
     position: absolute;
     top: 0;
     right: 0;
     margin: 0;
-    width: 18%;
+    width: 100px;
     transition: all 250ms ease-in-out;
+    z-index: 1;
 }
-.header-image-hover {
+.header-image-hover,
+.header-image-broken-hover {
     opacity: 0;
+    z-index: 2;
 }
-.image-link:hover .header-image {
-    opacity: 0;
-}
-.image-link:hover .header-image-hover {
+.image-link:hover .header-image-hover,
+.image-link-broken:hover .header-image-broken-hover{
     opacity: 1;
 }
 
 
 /* letter body */
 .letter-body { 
-    grid-area: letter-body; 
+    grid-area: letter-body;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
 }
 .body-text {
-    margin-top: 10%;
-    margin-bottom: 10%;
     word-wrap: break-word;
+    text-align: center;
 }
 
 
-/* buttons */
+/* common buttons */
 .no-btn, .yes-btn {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     margin: 0;
     padding: 0;
 }
 .no-button, .yes-button{
-    margin-bottom: 14%;
     font: "Inter";
     font-size: 1.6rem;
     font-weight: 600;
     color: white;
-    width: 80%;
+    width: 100px;
+    align-items: center;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    transition: all 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
 }
 
 
@@ -117,40 +131,16 @@ body {
     grid-area: no-btn;
 }
 .no-button {
-    align-items: center;
     background-color: rgba(255, 188, 188, 0.3);
-    border:1px solid rgba(255, 255, 255, 0.18);
-    border-radius: .25rem;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    font-weight: 600;
-    min-height: 1%;
-    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-    position: relative;
-    transition: all 250ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: baseline;
-}
-.no-button:hover,
-.no-button:focus {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
 }
 .no-button:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    background-color: rgba(255, 188, 188, 0.8);
+    box-shadow: rgba(255, 188, 188, 0.6) 0 4px 12px;
 }
 .no-button:active {
-    background-color: #F0F0F1;
-    background-color: rgba(255, 188, 188, 0.8);
-    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-    color: rgba(0, 0, 0, 0.65);
-    transform: translateY(0);
+    transform: translateY(1px);
+    background-color: rgba(180, 135, 135, 0.6);
 }
 
 
@@ -159,38 +149,14 @@ body {
     grid-area: yes-btn;
 }
 .yes-button {
-    align-items: center;
-    background-color: rgba(163, 171, 255, 0.3);
-    border:1px solid rgba(255, 255, 255, 0.18);
-    border-radius: .25rem;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    font-weight: 600;
-    min-height: 1%;
-    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-    position: relative;
-    transition: all 250ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: baseline;
-}
-.yes-button:hover,
-.yes-button:focus {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(107, 126, 255, 0.3);
 }
 .yes-button:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    background-color: rgba(107, 126, 255, 0.8);
+    box-shadow: rgba(107, 126, 255, 0.6) 0 4px 12px;
 }
 .yes-button:active {
-    background-color: rgba(163, 171, 255, 0.8);
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-    color: rgba(0, 0, 0, 0.65);
-    transform: translateY(0);
+    transform: translateY(1px);
+    background-color: rgba(69, 82, 165, 0.6);
 }

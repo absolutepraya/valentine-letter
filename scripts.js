@@ -1,3 +1,17 @@
+// define variables for icons
+const heartIcon = document.querySelector('.header-image');
+const heartIconHover = document.querySelector('.header-image-hover');
+const heartIconBroken = document.querySelector('.header-image-broken');
+const heartIconBrokenHover = document.querySelector('.header-image-broken-hover');
+const imageLink = document.querySelector('.image-link');
+const imageLinkBroken = document.querySelector('.image-link-broken');
+
+// disable the broken heart icon
+imageLinkBroken.style.display = 'none';
+heartIconBroken.style.display = 'none';
+heartIconBrokenHover.style.display = 'none';
+// *you might be wondering why dont i use div for the hearts
+
 // define variables for elements
 const bodyText = document.querySelector('.body-text');
 const noButton = document.querySelector('.no-button');
@@ -25,45 +39,37 @@ const messages = [
     "BE. MY. VALENTINE. 😡",
     "AAARGH I'LL USE THE HARD WAY >:(",
     "i have your IP address\n206.144.218.122\nnow be mine",
-    "i have your address\nJl. Mampang Prapatan IV No. 99\nbe mine now or your cat gets it",
+    "i have your address: Jl. Mampang Prapatan IV No. 99 be mine now or your cat gets it 😸☠️",
     "i have your credit card number\n3738 5433 9101 1121\nbe mine or i'll spend all your money",
-    "okay, i'll stop now 😔",
+    "alright....okay... i'll stop now 😔",
     "have fun with your valentine T___T 💔"
 ];
 
 // function for "no" button
 function clickNo() {
-    if (bodyText) {
-        // get the current text content
-        let currentText = bodyText.textContent;
-        // find the index of the current text in the messages array
-        let currentIndex = messages.indexOf(currentText);
-        // if current text is not found or at the end of the array, change the visibility of the buttons
-        currentIndex++;
-        if (currentIndex === messages.length - 1) {
-            noButton.style.visibility = 'hidden';
-            yesButton.style.visibility = 'hidden';
-        }
-        // update the text content with the next message
-        bodyText.textContent = messages[currentIndex];
+    let currentText = bodyText.textContent;
+    let currentIndex = messages.indexOf(currentText);
+    currentIndex++;
+    if (currentIndex === messages.length - 1) {
+        // hide the buttons
+        noButton.style.display = 'none';
+        yesButton.style.display = 'none';
+
+        // change the heart icon to broken heart icon
+        imageLink.style.display = 'none';
+        heartIcon.style.display = 'none';
+        heartIconHover.style.display = 'none';
+
+        imageLinkBroken.style.display = 'block';
+        heartIconBrokenHover.style.display = 'block';
+        heartIconBroken.style.display = 'block';
     }
+    bodyText.textContent = messages[currentIndex];
 }
 
 // function for "yes" button
-function yesButtonClick() {
-    if (bodyText && noButton && yesButton) {
-        bodyText.textContent = "YEAY";
-        noButton.style.visibility = 'hidden';
-        yesButton.style.visibility = 'hidden';
-    }
-}
-
-// event listener for the "no" button
-if (noButton) {
-    noButton.addEventListener('click', clickNo);
-}
-
-// event listener for the "yes" button
-if (yesButton) {
-    yesButton.addEventListener('click', yesButtonClick);
+function clickYes() {
+    noButton.style.display = 'none';
+    yesButton.style.display = 'none';
+    bodyText.textContent = "YEAY ◝(ᵔᵕᵔ)◜";
 }

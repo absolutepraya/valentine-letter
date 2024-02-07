@@ -15,17 +15,20 @@
             <p class="header-text">dear [name],</p>
         </div>
         <div class="letter-icon">
-            <a href="https://en.wikipedia.org/wiki/Valentine%27s_Day" class="image-link">
-                <!-- image here -->
+            <a href="https://en.wikipedia.org/wiki/Valentine%27s_Day" target="_blank" class="image-link">
                 <img class="header-image" src="assets/HeartBadge.png">
                 <img class="header-image-hover" src="assets/HeartBadge_Hover.png">
             </a>
+            <a href="https://www.quora.com/Can-I-marry-my-cat" target="_blank" class="image-link-broken">
+                <img class="header-image-broken" src="assets/HeartBadgeBroken_Hover.png">
+                <img class="header-image-broken-hover" src="assets/HeartBadgeBroken.png">
+            </a>
         </div>
         <div class="no-btn">
-            <button class="no-button">nah</button>
+            <button class="no-button" onclick="clickNo()">nah</button>
         </div>
         <div class="yes-btn">
-            <button class="yes-button">ofc</button>
+            <button class="yes-button" onclick="clickYes()">yes!</button>
         </div>
     </div>
     <script src="scripts.js"></script>
