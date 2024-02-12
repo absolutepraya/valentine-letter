@@ -9,10 +9,10 @@ It's very simple, but I tried not to make it boring as much as I could. Go check
 
 https://absolutepraya.github.io/valentine-letter/
 
+*\*Note:*
+Not available for mobile view, too lazy to make responsive page.
+Also, I used relative units for almost everything, so maximized window is recommended.
+
 ### Credits
 
 Artworks by [Uomi](https://www.pixiv.net/en/users/11065404)
-
-<br>
-
-*In next project, I will try to use TailwindCSS and ReactJS to make it more fire.*

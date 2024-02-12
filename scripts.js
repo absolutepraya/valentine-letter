@@ -1,3 +1,10 @@
+// disable right click on images
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
 // ———————————————— CONVERSATION ————————————————
 
 // define variables for elements
@@ -108,12 +115,13 @@ function clickYes() {
 // show the second container for the date details
 function dateDetails() {
     container.style.display = 'none';
-    container2.style.display = 'grid'; 
+    container2.style.display = 'grid';
 }
 
 // ———————————————— DATE DETAILS ————————————————
 
 // define variables for the date details
+const dateHeaderText = document.querySelector('.date-header-text');
 const dateBodyText = document.querySelector('.date-message-text');
 const x1Image = document.querySelector('.x1-img');
 const x2Image = document.querySelector('.x2-img');
@@ -145,8 +153,8 @@ function part2() {
     x3Image.src = "assets/date/x3_part2.jpg";
     x4Image.src = "assets/date/x4_part2.jpg";
     x1Text.textContent = "fancy dinner";
-    x2Text.textContent = "strolling around at night";
-    x3Text.textContent = "gaming";
+    x2Text.textContent = "movie night";
+    x3Text.textContent = "strolling around at night";
     x4Text.textContent = "building lego together";
 }
 
@@ -183,25 +191,22 @@ function part5_end() {
     x3.removeEventListener('click', x3Click);
     x4.removeEventListener('click', x4Click);
 
-    // // select the divs
-    // const divs = [document.querySelectorAll('.x1, .x2, .x3, .x4')];
-
-    // // loop through each div
-    // divs.forEach(div => {
-    //     // select the img and p elements within the current div
-    //     const img = div.querySelector('img');
-    //     const p = div.querySelector('p');
-
-    //     // move the p element before the img element
-    //     div.insertBefore(p, img);
-
-    //     // change the margin
-    //     img.style.marginBottom = '0';
-    //     p.style.marginBottom = '-13px';
-    // });
+    // disable hover effect
+    var style = document.createElement('style');
+    style.innerHTML = `
+        .x1:hover,
+        .x2:hover,
+        .x3:hover,
+        .x4:hover {
+            cursor: auto;
+            background: initial;
+        }
+    `;
+    document.head.appendChild(style);
 
     // show the results
-    dateBodyText.textContent = "GOT IT! screenshot this page and send it to me. SEE YOU SOON!!!";
+    dateHeaderText.textContent = "GOT IT!";
+    dateBodyText.textContent = "screenshot this page and lmk! SEE U SOON";
     x1Image.src = `assets/date/x${choices[0]}_part1.jpg`;
     x2Image.src = `assets/date/x${choices[1]}_part2.jpg`;
     x3Image.src = `assets/date/x${choices[2]}_part3.jpg`;
