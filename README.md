@@ -5,7 +5,9 @@
 
 This is a fun project using only basic HTML, CSS, and JS since I forgot how to use them XD.
 
-Currently, it's not done yet. Conversation is already up. Will fix all the bugs, simplify the code, and add a feature within the conversation later.
+It's very simple, but I tried not to make it boring as much as I could. Go check it out!
+
+https://absolutepraya.github.io/valentine-letter/
 
 ### Credits
 

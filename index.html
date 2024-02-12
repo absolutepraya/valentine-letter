@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine Letter</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preload" href="assets/bg1.png" as="image">
 </head>
 <body>
+
+    <!-- first container -->
     <div class="container">
         <div class="letter-body">
             <p class="body-text">will you be my valentine?</p>
         </div>
         <div class="letter-header">
-            <p class="header-text">dear [name],</p>
+            <p class="header-text">dear kayla,</p>
         </div>
         <div class="letter-icon">
             <a href="https://en.wikipedia.org/wiki/Valentine%27s_Day" target="_blank" class="image-link">
@@ -31,6 +34,41 @@
             <button class="yes-button" onclick="clickYes()">yes!</button>
         </div>
     </div>
+
+    <!-- second container -->
+    <div class="container2">
+        <div class="date-message">
+            <p class="date-message-text">what are we gonna do on valentine's day?</p>
+        </div>
+        <div class="date-header">
+            <p class="date-header-text">our date details :3</p>
+        </div>
+        <div class="date-content">
+            <div class="x1">
+                <img class="x1-img" src="assets/date/x1_part1.jpg">
+                <p class="x1-text">picnic in the city park</p>
+            </div>
+            <div class="x2">
+                <img class="x2-img" src="assets/date/x2_part1.jpg">
+                <p class="x2-text">pottery making</p>
+            </div>
+            <div class="x3">
+                <img class="x3-img" src="assets/date/x3_part1.jpg">
+                <p class="x3-text">museum date</p>
+            </div>
+            <div class="x4">
+                <img class="x4-img" src="assets/date/x4_part1.jpg">
+                <p class="x4-text">cooking class</p>
+            </div>
+        </div>
+        <div class="date-icon">
+            <a href="https://en.wikipedia.org/wiki/Valentine%27s_Day" target="_blank" class="image-link">
+                <img class="header-image" src="assets/HeartBadge.png">
+                <img class="header-image-hover" src="assets/HeartBadge_Hover.png">
+            </a>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>

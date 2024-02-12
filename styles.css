@@ -9,10 +9,14 @@ body {
     height: 100vh;
     margin: 0;
     /* set background image */
-    background-image: url("assets/114694219_p0.png");
+    background-image: url("assets/bg1.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
+
+
+/* —————————————————— FIRST CONTAINER —————————————————— */
 
 
 /* container */
@@ -124,6 +128,18 @@ body {
     touch-action: manipulation;
     vertical-align: baseline;
 }
+.no-button:disabled,
+.yes-button:disabled {
+    background-color: rgba(118, 118, 118, 0.3);
+    color: rgba(26, 26, 26, 0.888);
+    cursor: not-allowed;
+}
+
+.no-button:disabled:hover,
+.yes-button:disabled:hover {
+    background-color: rgba(118, 118, 118, 0.3);
+    box-shadow: none;
+}
 
 
 /* no buttons */
@@ -143,7 +159,6 @@ body {
     background-color: rgba(180, 135, 135, 0.6);
 }
 
-
 /* yes buttons */
 .yes-btn { 
     grid-area: yes-btn;
@@ -159,4 +174,105 @@ body {
 .yes-button:active {
     transform: translateY(1px);
     background-color: rgba(69, 82, 165, 0.6);
+}
+
+
+/* —————————————————— SECOND CONTAINER —————————————————— */
+
+
+/* container */
+.container2 { 
+    display: grid;
+    grid-template-columns: 1000px 50px;
+    grid-template-rows: 70px 70px 650px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "date-header date-icon"
+        "date-message date-message"
+        "date-content date-content";
+    
+    overflow: hidden;
+    /* glass blur effect */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+/* .container2 > * {
+    border: 1px solid rgb(255, 0, 0);
+} */
+
+
+/* header */
+.date-header { 
+    grid-area: date-header; 
+}
+.date-header-text{
+    margin-left: 3%;
+    margin-top: 2%;
+    font-weight: 700;
+}
+
+
+/* icon */
+.date-icon { 
+    grid-area: date-icon; 
+}
+
+
+/* message  */
+.date-message { 
+    grid-area: date-message; 
+}
+.date-message-text {
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1%;
+}
+
+
+/* content */
+.date-content { 
+    grid-area: date-content;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        "x1 x2"
+        "x3 x4"; 
+}
+/* .date-content > * {
+    border: 1px solid black;
+} */
+
+
+/* common contents */
+.x1, .x2, .x3, .x4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding-top: 20px;
+    transition: all 100ms ease-in-out;
+}
+.x1:hover,
+.x2:hover,
+.x3:hover,
+.x4:hover {
+    cursor: pointer;
+    background: rgba(24, 24, 24, 0.451);
+}
+.x1-img, .x2-img, .x3-img, .x4-img {
+    width: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: -13px;
 }
