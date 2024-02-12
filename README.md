@@ -1,6 +1,6 @@
 # Valentine Letter
 
-![pic1](assets/README/pic1.png)  
+![pic1](assets/README/ss.png)  
 <div align="center">(it's simple and ass i know)</div><br>
 
 This is a fun project using only basic HTML, CSS, and JS since I forgot how to use them XD.
